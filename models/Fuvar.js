@@ -1,15 +1,23 @@
 export class Fuvar {
-    constructor(id, name) {
-        if (typeof id != 'number' || id === null || id === undefined || id <= 0) {
-            throw new Error('Az id nincs megfelelően megadva');
-        };
+    constructor(name, consumption, literPrice, distance) {
         if (typeof name != 'string' || name === null || name === '' || name === undefined) {
-            throw new Error(`Nem megfelelően van megadva a név. : ${name}`);
+            throw new Error(`A név nincs megfelelően megadva. : ${name}`);
         };
-        this.id = id;
+        if (typeof consumption != 'number' || consumption === null || consumption === undefined || consumption <= 0) {
+            throw new Error(`A fogyasztás nincs megfelelően megadva. : ${consumption}`);
+        };
+        if (typeof literPrice != 'number' || literPrice === null || literPrice === undefined || literPrice <= 0) {
+            throw new Error(`Az üzemanyag ára nincs megfelelően megadva. : ${literPrice}`);
+        };
+        if (typeof distance != 'number' || distance === null || distance === undefined || distance <= 0) {
+            throw new Error(`A távolság nincs megfelelően megadva. : ${distance}`);
+        };
         this.name = name;
+        this.consumption = consumption;
+        this.literPrice = literPrice;
+        this.distance = distance;
     };
     toString () {
-        return (`$ID:${this.id}. NAME: ${this.name}`);
+        return (`Név: ${this.name}. Fogyasztás: ${this.consumption}. Üzemanyag ár (liternként): ${this.literPrice}. Távolság: ${this.distance}.`)
     };
 };
