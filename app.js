@@ -2,7 +2,7 @@ import { createInterface } from 'readline';
 import { readFuvarosok, readFuvarok } from './services/csvServices.js';
 import { newFuvar } from './services/fuvarService.js';
 
-const displayMenu = function () {
+const displayMenu = async function () {
     console.log(`
 Menü
 1 : Új fuvar hozzáadása
@@ -18,11 +18,11 @@ Menü
         output: process.stdout
     });
 
-    readline.question('Melyik menüpontot választja? : ', menuNum => {
+    readline.question('Melyik menüpontot választja? : ', async menuNum => {
         const fuvarok = readFuvarok();
         switch (Number(menuNum)) {
             case 1:
-                newFuvar();
+                await newFuvar(readline);
                 break;
             case 2:
                 console.log(readFuvarosok());

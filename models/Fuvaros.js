@@ -1,6 +1,6 @@
 export class Fuvaros {
     constructor(id, name) {
-        if (typeof id != 'number' || id === null || id === undefined || id <= 0) {
+        if (typeof id != 'number' || id === null || isNaN(id) || id === undefined || id <= 0) {
             throw new Error('Az id nincs megfelelően megadva');
         };
         if (typeof name != 'string' || name === null || name === '' || name === undefined) {
