@@ -1,14 +1,16 @@
 import { createInterface } from 'readline';
 import { readFuvarosok, readFuvarok } from './services/csvServices.js';
+import { newFuvar } from './services/fuvarService.js';
 
 const displayMenu = function () {
     console.log(`
 Menü
-1 : Fuvarosok listája
-2 : Eddigi fuvarok listája
-3 : Legrövidebb megtett út
-4 : Legnagyobb fogyasztású fuvar
-5 : Kilépés
+1 : Új fuvar hozzáadása
+2 : Fuvarosok listája
+3 : Eddigi fuvarok listája
+4 : Legrövidebb megtett út
+5 : Legnagyobb fogyasztású fuvar
+6 : Kilépés
     `);
 
     const readline = createInterface({
@@ -16,14 +18,16 @@ Menü
         output: process.stdout
     });
 
-    readline.question('Melyik menüpontot választja?', menuNum => {
-        console.log(menuNum)
+    readline.question('Melyik menüpontot választja? : ', menuNum => {
         const fuvarok = readFuvarok();
         switch (Number(menuNum)) {
             case 1:
-                console.log(readFuvarosok());
+                newFuvar();
                 break;
             case 2:
+                console.log(readFuvarosok());
+                break;
+            case 3:
                 if (!fuvarok) {
                     console.log('Nincs még felvett fuvar');
                 } else {

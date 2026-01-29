@@ -31,7 +31,7 @@ export const readFuvarok = function () {
             throw new Error(err);
         };
     });
-    if (fuvarok.length > 1) {
+    if (fuvarok.length == 0) {
         return false;
     } else {
         return fuvarok;
