@@ -50,4 +50,12 @@ export const shortestDistance = function (arr) {
     return shortestFuvar;
 };
 
-readFuvarosok();
+export const largestConsumption = function (arr) {
+    let largestCons = arr[0].consumption;
+    arr.forEach(element => {
+        if (element.consumption > largestCons) {
+            largestCons = element.consumption;
+        };
+    });
+    return largestCons;
+};
