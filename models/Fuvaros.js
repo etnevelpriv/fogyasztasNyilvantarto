@@ -9,7 +9,7 @@ export class Fuvaros {
         this.id = id;
         this.name = name;
     };
-    toString () {
+    toString() {
         return (`$ID:${this.id}. NAME: ${this.name}`);
     };
 };

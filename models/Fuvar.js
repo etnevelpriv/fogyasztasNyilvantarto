@@ -17,7 +17,10 @@ export class Fuvar {
         this.literPrice = literPrice;
         this.distance = distance;
     };
-    toString () {
+    toString() {
         return (`Név: ${this.name}. Fogyasztás: ${this.consumption}. Üzemanyag ár (liternként): ${this.literPrice}. Távolság: ${this.distance}.`)
+    };
+    toCSVFormat() {
+        return (`${this.name};${this.consumption};${this.literPrice};${this.distance}`)
     };
 };

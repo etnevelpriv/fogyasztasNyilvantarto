@@ -23,10 +23,12 @@ export const readFuvarok = function () {
     const lines = data.split('\n').slice(1);
     const fuvarok = [];
     lines.forEach(line => {
-        const id = line.split(';')[0];
-        const name = line.split(';')[1];
+        const name = line.split(';')[0];
+        const consumption = line.split(';')[1];
+        const price = line.split(';')[1];
+        const distance = line.split(';')[1];
         try {
-            fuvarok.push(new Fuvar(Number(id), name));
+            fuvarok.push(new Fuvar(name, Number(consumption), Number(price), Number(distance)));
         } catch (err) {
             throw new Error(err);
         };

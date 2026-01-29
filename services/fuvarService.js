@@ -21,10 +21,12 @@ export const newFuvar = function () {
                             readline.close();
                             return;
                         };
-                        const name = found.name;
+                        let name = found.name;
+                        name = name.trim();
                         console.log(name);
-                        const fuvar = new Fuvar(name, Number(consumption), Number(price), Number(distance));
-                        fs.appendFileSync('./data/fuvarok.csv', `${fuvar}\n`);
+                        const fuvar = new Fuvar(name, Number(consumption), Number(price), Number(distance)).toCSVFormat();
+                        console.log(fuvar)
+                        fs.appendFileSync('./data/fuvarok.csv', `\n${fuvar}`);
                         console.log('Fuvar sikeresen létrehozva.');
                     } catch (err) {
                         throw new Error(err)
