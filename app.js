@@ -1,5 +1,5 @@
 import { createInterface } from 'readline';
-import { readFuvarosok, readFuvarok } from './services/csvServices.js';
+import { readFuvarosok, readFuvarok, shortestDistance } from './services/csvServices.js';
 import { newFuvar } from './services/fuvarService.js';
 
 const displayMenu = async function () {
@@ -32,6 +32,13 @@ Menü
                     console.log('Nincs még felvett fuvar');
                 } else {
                     console.log(fuvarok);
+                };
+                break;
+            case 4:
+                if (!fuvarok) {
+                    console.log('Nincs még felvett fuvar');
+                } else {
+                    console.log(shortestDistance(fuvarok));
                 };
                 break;
             default:

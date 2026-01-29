@@ -8,7 +8,7 @@ export const newFuvar = async function (readline) {
         readline.question('Mi a fuvaros ID-ja? : ', id => {
             readline.question('Mennyit fogyaszt az autó? : ', consumption => {
                 readline.question('Mennyibe kerül egy liter üzemagyag? : ', price => {
-                    readline.question('Mennyi távolságott tett meg az autó? : ', distance => {
+                    readline.question('Mekkora távolságott tett meg az autó? (km) : ', distance => {
                         try {
                             const found = fuvarosok.find((element) => element.id == Number(id));
                             if (!found) {

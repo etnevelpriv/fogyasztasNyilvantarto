@@ -25,8 +25,8 @@ export const readFuvarok = function () {
     lines.forEach(line => {
         const name = line.split(';')[0];
         const consumption = line.split(';')[1];
-        const price = line.split(';')[1];
-        const distance = line.split(';')[1];
+        const price = line.split(';')[2];
+        const distance = line.split(';')[3];
         try {
             fuvarok.push(new Fuvar(name, Number(consumption), Number(price), Number(distance)));
         } catch (err) {
@@ -38,6 +38,16 @@ export const readFuvarok = function () {
     } else {
         return fuvarok;
     }
+};
+
+export const shortestDistance = function (arr) {
+    let shortestFuvar = arr[0].distance;
+    arr.forEach(element => {
+        if (element.distance < shortestFuvar) {
+            shortestFuvar = element.distance;
+        };
+    });
+    return shortestFuvar;
 };
 
 readFuvarosok();
